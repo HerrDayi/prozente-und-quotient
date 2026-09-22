@@ -1,0 +1,184 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{fontspec}
+\setmainfont{Libertinus Serif}
+
+\usepackage[a4paper,margin=1.2cm,top=1.0cm,bottom=1.0cm]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage[skins]{tcolorbox}
+\usepackage{enumitem}
+
+\definecolor{primaryBlue}{HTML}{143264}
+\definecolor{lvlGreen}{RGB}{25, 125, 55}
+\definecolor{lvlBlue}{RGB}{20, 80, 160}
+\definecolor{lvlPurple}{RGB}{115, 30, 135}
+
+\definecolor{step1Bg}{HTML}{FFFBEB}
+\definecolor{step1Border}{HTML}{FDE68A}
+\definecolor{step1Text}{HTML}{92400E}
+
+\definecolor{step2Bg}{HTML}{EFF6FF}
+\definecolor{step2Border}{HTML}{BFDBFE}
+\definecolor{step2Text}{HTML}{1E40AF}
+
+\definecolor{step3Bg}{HTML}{ECFDF5}
+\definecolor{step3Border}{HTML}{A7F3D0}
+\definecolor{step3Text}{HTML}{065F46}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% ==============================================================================
+% SEITE 1: TIPP-KARTEN PROZENTRECHNUNG (S. 223 - 224)
+% ==============================================================================
+
+\noindent
+{\color{primaryBlue}\bfseries\normalsize \faBook\enskip Gestufte Hilfen (Printversion): Prozentrechnung}
+\hfill
+{\footnotesize\color{primaryBlue!80} \textbf{Mathematik 6D} \quad$|$\quad Herr Dayi}
+\vspace{1.5mm}
+{\color{primaryBlue!40}\hrule height 0.6pt}
+\vspace{2.5mm}
+
+% --- AUFGABE S. 223 NR. 2 ---
+\begin{tcolorbox}[enhanced, colback=lvlGreen!5, colframe=lvlGreen!50, arc=2mm, boxrule=0.8pt, left=3mm, right=3mm, top=2mm, bottom=2mm]
+    {\bfseries\color{lvlGreen} \faStar\enskip S. 223, Nr. 2 (Basis): Brüche in Prozent umwandeln}\\[1mm]
+    {\footnotesize\textit{Wandle die Brüche $\frac{1}{2}, \frac{1}{5}, \frac{3}{5}, \frac{1}{4}, \frac{2}{25}, \dots$ in Prozent um.}}
+\end{tcolorbox}
+
+\vspace{1.5mm}
+
+\begin{tcolorbox}[colback=step1Bg, colframe=step1Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step1Text}\small\bfseries\faEye\enskip Stufe 1: Anschauung}\\[1mm]
+    {\footnotesize Prozent bedeutet \textbf{„von Hundert“}. Du musst den Bruch so erweitern, dass im Nenner $\mathbf{100}$ steht. Dann liest du die Prozentzahl direkt im Zähler ab!}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=step2Bg, colframe=step2Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step2Text}\small\bfseries\faLightbulb\enskip Stufe 2: Denkanstoß}\\[1mm]
+    {\footnotesize Mit welcher Zahl musst du den Nenner multiplizieren, um 100 zu erhalten?\\
+    Nenner 2: $\cdot 50$ \quad$|$\quad Nenner 5: $\cdot 20$ \quad$|$\quad Nenner 4: $\cdot 25$ \quad$|$\quad Nenner 25: $\cdot 4$ \quad$|$\quad Nenner 50: $\cdot 2$.}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=step3Bg, colframe=step3Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step3Text}\small\bfseries\faCheckCircle\enskip Stufe 3: Rechenweg}\\[1mm]
+    {\footnotesize $\frac{3}{5} = \frac{3 \cdot 20}{5 \cdot 20} = \frac{60}{100} = 60\,\%$ \qquad $\frac{2}{25} = \frac{2 \cdot 4}{25 \cdot 4} = \frac{8}{100} = 8\,\%$.}
+\end{tcolorbox}
+
+\vspace{3.5mm}
+
+% --- AUFGABE S. 224 NR. 9 ---
+\begin{tcolorbox}[enhanced, colback=lvlBlue!5, colframe=lvlBlue!50, arc=2mm, boxrule=0.8pt, left=3mm, right=3mm, top=2mm, bottom=2mm]
+    {\bfseries\color{lvlBlue} \faStar\faStar\enskip S. 224, Nr. 9 (Standard): Welche Angabe passt nicht?}\\[1mm]
+    {\footnotesize\textit{Vergleiche: a) jeder Fünfte; $20\,\%$; $3$ von $15$; $\frac{1}{4}$.}}
+\end{tcolorbox}
+
+\vspace{1.5mm}
+
+\begin{tcolorbox}[colback=step1Bg, colframe=step1Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step1Text}\small\bfseries\faEye\enskip Stufe 1: Anschauung}\\[1mm]
+    {\footnotesize Wandle alle vier Ausdrücke in dieselbe Darstellungsform um (am einfachsten alle in Prozent!).}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=step2Bg, colframe=step2Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step2Text}\small\bfseries\faLightbulb\enskip Stufe 2: Denkanstoß}\\[1mm]
+    {\footnotesize Kürze $\frac{3}{15}$ zuerst durch 3! Was ergibt das? Erweitere das Ergebnis dann auf Nenner 100.}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=step3Bg, colframe=step3Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step3Text}\small\bfseries\faCheckCircle\enskip Stufe 3: Rechenweg}\\[1mm]
+    {\footnotesize Jeder Fünfte = $\frac{1}{5} = 20\,\%$ \quad$|$\quad $\frac{3}{15} = \frac{1}{5} = 20\,\%$ \quad$|$\quad Aber: $\frac{1}{4} = 25\,\%$ (passt nicht!).}
+\end{tcolorbox}
+
+\newpage
+
+% ==============================================================================
+% SEITE 2: TIPP-KARTEN BRÜCHE ALS QUOTIENT (S. 227)
+% ==============================================================================
+
+\noindent
+{\color{primaryBlue}\bfseries\normalsize \faDivide\enskip Gestufte Hilfen (Printversion): Brüche als Quotient}
+\hfill
+{\footnotesize\color{primaryBlue!80} \textbf{Mathematik 6D} \quad$|$\quad Herr Dayi}
+\vspace{1.5mm}
+{\color{primaryBlue!40}\hrule height 0.6pt}
+\vspace{2.5mm}
+
+% --- AUFGABE S. 227 NR. 1 ---
+\begin{tcolorbox}[enhanced, colback=lvlGreen!5, colframe=lvlGreen!50, arc=2mm, boxrule=0.8pt, left=3mm, right=3mm, top=2mm, bottom=2mm]
+    {\bfseries\color{lvlGreen} \faStar\enskip S. 227, Nr. 1 (Basis): Division als Bruch schreiben}\\[1mm]
+    {\footnotesize\textit{Schreibe als vollständig gekürzten Bruch: a) $5 : 2$, b) $2 : 7$, c) $15 : 5$, i) $18 : 12$.}}
+\end{tcolorbox}
+
+\vspace{1.5mm}
+
+\begin{tcolorbox}[colback=step1Bg, colframe=step1Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step1Text}\small\bfseries\faEye\enskip Stufe 1: Anschauung}\\[1mm]
+    {\footnotesize Die Grundregel lautet: Erste Zahl nach \textbf{oben} in den Zähler, zweite Zahl nach \textbf{unten} in den Nenner (z.\,B. $3 : 4 = \frac{3}{4}$).}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=step2Bg, colframe=step2Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step2Text}\small\bfseries\faLightbulb\enskip Stufe 2: Denkanstoß}\\[1mm]
+    {\footnotesize Prüfe nach dem Aufschreiben: Geht die Division ohne Rest auf (z.\,B. $15:5 = \frac{15}{5} = 3$)? Kannst du Zähler und Nenner noch kürzen?}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=step3Bg, colframe=step3Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step3Text}\small\bfseries\faCheckCircle\enskip Stufe 3: Rechenweg}\\[1mm]
+    {\footnotesize $5 : 2 = \frac{5}{2} = 2\frac{1}{2}$ \qquad $15 : 5 = 3$ (natürliche Zahl!) \qquad $18 : 12 = \frac{18}{12} = \frac{3}{2} = 1\frac{1}{2}$ (durch 6 gekürzt).}
+\end{tcolorbox}
+
+\vspace{3.5mm}
+
+% --- AUFGABE S. 227 NR. 2 ---
+\begin{tcolorbox}[enhanced, colback=lvlBlue!5, colframe=lvlBlue!50, arc=2mm, boxrule=0.8pt, left=3mm, right=3mm, top=2mm, bottom=2mm]
+    {\bfseries\color{lvlBlue} \faStar\faStar\enskip S. 227, Nr. 2 (Standard): Kistensortierung}\\[1mm]
+    {\footnotesize\textit{Sortiere die Kärtchen in die Kisten $\frac{2}{3}$, $\frac{3}{2}$ und $\frac{3}{4}$ ein: $2:3$, $3:2$, $9:12$, $12:16$, $8:12$, $40:60$, $18:12$, $48:32$, $100:150$.}}
+\end{tcolorbox}
+
+\vspace{1.5mm}
+
+\begin{tcolorbox}[colback=step1Bg, colframe=step1Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step1Text}\small\bfseries\faEye\enskip Stufe 1: Anschauung}\\[1mm]
+    {\footnotesize Schreibe jedes Kärtchen als Bruch auf und kürze ihn vollständig!}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=step2Bg, colframe=step2Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step2Text}\small\bfseries\faLightbulb\enskip Stufe 2: Denkanstoß}\\[1mm]
+    {\footnotesize Schneller Check für Kiste $\frac{3}{2}$: Hier ist der Zähler größer als der Nenner (Wert $>1$). Alle Kärtchen mit erster Zahl $>$ zweiter Zahl gehören hierhin!}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=step3Bg, colframe=step3Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step3Text}\small\bfseries\faCheckCircle\enskip Stufe 3: Rechenweg}\\[1mm]
+    {\footnotesize Kiste $\frac{2}{3}$: $2:3$, $8:12$, $40:60$, $30:45$, $100:150$ \quad$|$\quad Kiste $\frac{3}{2}$: $3:2$, $18:12$, $48:32$ \quad$|$\quad Kiste $\frac{3}{4}$: $9:12$, $12:16$, $30:40$, $60:80$.}
+\end{tcolorbox}
+
+\vspace{3.5mm}
+
+% --- AUFGABE S. 228 NR. 7 ---
+\begin{tcolorbox}[enhanced, colback=lvlPurple!5, colframe=lvlPurple!50, arc=2mm, boxrule=0.8pt, left=3mm, right=3mm, top=2mm, bottom=2mm]
+    {\bfseries\color{lvlPurple} \faStar\faStar\faStar\enskip S. 228, Nr. 7 (Extra): Finde den Fehler!}\\[1mm]
+    {\footnotesize\textit{Finde und korrigiere den Fehler: a) $8 : 5 = \frac{5}{8}$, b) Mädchen zu Jungen 3:6 $\to$ die Hälfte Mädchen, c) Quotient aus 8 und 8 ist $\frac{8}{8} = 0$.}}
+\end{tcolorbox}
+
+\vspace{1.5mm}
+
+\begin{tcolorbox}[colback=step1Bg, colframe=step1Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step1Text}\small\bfseries\faEye\enskip Stufe 1: Anschauung}\\[1mm]
+    {\footnotesize Prüfe: Welche Zahl steht vorne (Zähler) und welche hinten (Nenner)? Wie viele Kinder sind es insgesamt in Klasse 5b? Was ist eine Zahl geteilt durch sich selbst?}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=step2Bg, colframe=step2Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step2Text}\small\bfseries\faLightbulb\enskip Stufe 2: Denkanstoß}\\[1mm]
+    {\footnotesize a) Zähler und Nenner wurden vertauscht! b) Insgesamt gibt es $3 + 6 = 9$ Kinder (Anteil ist $\frac{3}{9}$)! c) $8:8 = 1$ Ganzes, nicht $0$!}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=step3Bg, colframe=step3Border, arc=1.8mm, boxrule=0.7pt, left=3mm, right=3mm, top=1.8mm, bottom=1.8mm]
+    {\color{step3Text}\small\bfseries\faCheckCircle\enskip Stufe 3: Rechenweg}\\[1mm]
+    {\footnotesize \textbf{a)} Richtig: $8 : 5 = \frac{8}{5} = 1\frac{3}{5}$. \quad \textbf{b)} Richtig: Anteil der Mädchen ist $\frac{3}{9} = \frac{1}{3}$ (ein Drittel). \quad \textbf{c)} Richtig: $\frac{8}{8} = 1$.}
+\end{tcolorbox}
+
+\end{document}

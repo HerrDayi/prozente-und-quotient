@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Gestufte Hilfen: Prozente & Brüche als Quotient | Mathe 6D</title>
+  <style>
+    :root {
+      --primary: #143264;
+      --primary-light: #1e40af;
+      --accent: #0284c7;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #cbd5e1;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+
+      --lvl-green: #16a34a;
+      --lvl-green-bg: #dcfce7;
+      --lvl-green-border: #86efac;
+
+      --lvl-blue: #2563eb;
+      --lvl-blue-bg: #dbeafe;
+      --lvl-blue-border: #93c5fd;
+
+      --lvl-purple: #9333ea;
+      --lvl-purple-bg: #f3e8ff;
+      --lvl-purple-border: #d8b4fe;
+
+      --step1-bg: #fffbeb;
+      --step1-border: #fde68a;
+      --step1-text: #92400e;
+      --step1-badge: #f59e0b;
+
+      --step2-bg: #eff6ff;
+      --step2-border: #bfdbfe;
+      --step2-text: #1e40af;
+      --step2-badge: #3b82f6;
+
+      --step3-bg: #ecfdf5;
+      --step3-border: #a7f3d0;
+      --step3-text: #065f46;
+      --step3-badge: #10b981;
+
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.55;
+      padding-bottom: 70px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, #1e3a8a 100%);
+      color: white;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    header h1 { font-size: 1.35rem; font-weight: 800; margin-bottom: 0.2rem; }
+    header p { font-size: 0.88rem; opacity: 0.9; }
+
+    .nav-toolbar {
+      max-width: 960px;
+      margin: 1rem auto 0.5rem;
+      padding: 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      background: #e2e8f0;
+      padding: 0.25rem;
+      border-radius: 10px;
+    }
+
+    .filter-btn {
+      border: none;
+      background: transparent;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn.active {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-top: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .task-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .task-header {
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      background: #ffffff;
+      border-bottom: 1px solid #f1f5f9;
+      user-select: none;
+    }
+
+    .task-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .level-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .level-badge.green { background: var(--lvl-green-bg); color: var(--lvl-green); border: 1px solid var(--lvl-green-border); }
+    .level-badge.blue { background: var(--lvl-blue-bg); color: var(--lvl-blue); border: 1px solid var(--lvl-blue-border); }
+    .level-badge.purple { background: var(--lvl-purple-bg); color: var(--lvl-purple); border: 1px solid var(--lvl-purple-border); }
+
+    .task-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .task-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .task-body {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .prompt-box {
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      padding: 0.75rem 1rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.92rem;
+    }
+
+    .help-step {
+      border-radius: 10px;
+      border: 1px solid;
+      overflow: hidden;
+    }
+
+    .help-step.step1 { border-color: var(--step1-border); background: var(--step1-bg); }
+    .help-step.step2 { border-color: var(--step2-border); background: var(--step2-bg); }
+    .help-step.step3 { border-color: var(--step3-border); background: var(--step3-bg); }
+
+    .help-toggle {
+      width: 100%;
+      text-align: left;
+      padding: 0.65rem 0.9rem;
+      background: transparent;
+      border: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .help-step.step1 .help-toggle { color: var(--step1-text); }
+    .help-step.step2 .help-toggle { color: var(--step2-text); }
+    .help-step.step3 .help-toggle { color: var(--step3-text); }
+
+    .help-content {
+      padding: 0.75rem 0.9rem 0.9rem;
+      font-size: 0.88rem;
+      display: none;
+      border-top: 1px dashed rgba(0,0,0,0.1);
+    }
+    .help-content.open { display: block; }
+
+    .math-block {
+      background: white;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      margin: 0.5rem 0;
+      font-family: "Courier New", monospace, serif;
+      font-size: 0.95rem;
+      font-weight: bold;
+      border: 1px solid #e2e8f0;
+      overflow-x: auto;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>💡 Gestufte Hilfen: Mathematik 6D</h1>
+    <p>Doppelstunde: Prozente & Brüche als Quotient | Buch S. 223–227</p>
+  </header>
+
+  <div class="nav-toolbar">
+    <div class="filter-group" id="topicFilter">
+      <button class="filter-btn active" onclick="filterTopic('all')">Alle Themen</button>
+      <button class="filter-btn" onclick="filterTopic('prozent')">% Prozente (S. 223–224)</button>
+      <button class="filter-btn" onclick="filterTopic('quotient')">÷ Brüche als Quotient (S. 227)</button>
+    </div>
+
+    <div class="filter-group" id="levelFilter">
+      <button class="filter-btn active" onclick="filterLevel('all')">Alle Level</button>
+      <button class="filter-btn" onclick="filterLevel('1')">⭐ Basis</button>
+      <button class="filter-btn" onclick="filterLevel('2')">⭐⭐ Standard</button>
+      <button class="filter-btn" onclick="filterLevel('3')">⭐⭐⭐ Extra</button>
+    </div>
+  </div>
+
+  <main id="tasksContainer">
+
+    <!-- ======================================================== -->
+    <!-- THEMA 1: PROZENTE (S. 223 - 224) -->
+    <!-- ======================================================== -->
+    <div class="section-title topic-prozent">
+      <span>📊</span> Thema 1: Brüche als Prozente (S. 223 – 224)
+    </div>
+
+    <!-- S. 223, Nr. 2 -->
+    <article class="task-card" data-topic="prozent" data-level="1">
+      <div class="task-header" onclick="toggleTask(this)">
+        <div class="task-info">
+          <span class="level-badge green">⭐ 1 Stern</span>
+          <span class="task-name">S. 223, Nr. 2</span>
+          <span class="task-desc">Schreibe in Prozent: 1/2, 1/5, 3/5, 1/4, 2/25, 3/50 ...</span>
+        </div>
+        <span>▼</span>
+      </div>
+      <div class="task-body">
+        <div class="prompt-box">
+          <strong>Aufgabe:</strong> Wandle die Brüche in Prozentangaben um, indem du sie auf den Nenner 100 erweiterst.
+        </div>
+
+        <div class="help-step step1">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>👁️ Stufe 1: Grundvorstellung & Anschauung</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Prozent bedeutet <strong>„von Hundert“</strong>. Ziel ist es immer, den Bruch so zu erweitern, dass im <strong>Nenner genau 100</strong> steht.<br>
+            Sobald der Nenner 100 ist, liest du die Prozentzahl direkt oben im Zähler ab!
+          </div>
+        </div>
+
+        <div class="help-step step2">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>💡 Stufe 2: Denkanstoß (Erweiterungszahl finden)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Überlege dir für jeden Nenner, mit welcher Zahl du malnehmen musst, um 100 zu erhalten:
+            <ul style="margin-left: 1.2rem; margin-top: 0.3rem;">
+              <li>Nenner 2: mit 50 erweitern (2 · 50 = 100)</li>
+              <li>Nenner 5: mit 20 erweitern (5 · 20 = 100)</li>
+              <li>Nenner 4: mit 25 erweitern (4 · 25 = 100)</li>
+              <li>Nenner 25: mit 4 erweitern (25 · 4 = 100)</li>
+              <li>Nenner 50: mit 2 erweitern (50 · 2 = 100)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="help-step step3">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>✍️ Stufe 3: Rechenweg & Lösung</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Rechne Zähler und Nenner mit derselben Zahl mal:
+            <div class="math-block">
+              a) 1/2 = (1 · 50)/(2 · 50) = 50/100 = 50 %<br>
+              b) 1/5 = (1 · 20)/(5 · 20) = 20/100 = 20 %<br>
+              c) 3/5 = (3 · 20)/(5 · 20) = 60/100 = 60 %<br>
+              d) 1/4 = (1 · 25)/(4 · 25) = 25/100 = 25 %<br>
+              e) 2/25 = (2 · 4)/(25 · 4) = 8/100 = 8 %<br>
+              f) 3/50 = (3 · 2)/(50 · 2) = 6/100 = 6 %
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- S. 223, Nr. 4 -->
+    <article class="task-card" data-topic="prozent" data-level="2">
+      <div class="task-header" onclick="toggleTask(this)">
+        <div class="task-info">
+          <span class="level-badge blue">⭐⭐ 2 Sterne</span>
+          <span class="task-name">S. 223, Nr. 4</span>
+          <span class="task-desc">Drücke mit einem Bruch und in Prozent aus (Textaufgaben)</span>
+        </div>
+        <span>▼</span>
+      </div>
+      <div class="task-body">
+        <div class="prompt-box">
+          <strong>Aufgabe:</strong> a) Jedes 20. Los gewinnt. b) Jedes 4. Haus beschädigt. c) 4 von 5 Bundesligaspielen aus. d) Die Grundherren verlangten den Zehnten.
+        </div>
+
+        <div class="help-step step1">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>👁️ Stufe 1: Anschauung (Vom Text zum Bruch)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Übersetze den Text zuerst in einen normalen Bruch:
+            „Jedes 20.“ heißt: 1 von 20 = <strong>1/20</strong>.<br>
+            „Vier von fünf“ heißt: <strong>4/5</strong>.<br>
+            „Der Zehnte“ heißt: 1 von 10 = <strong>1/10</strong>.
+          </div>
+        </div>
+
+        <div class="help-step step2">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>💡 Stufe 2: Denkanstoß (Auf Nenner 100 bringen)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Erweitere jeden Bruch auf den Nenner 100:
+            1/20 mit 5, 1/4 mit 25, 4/5 mit 20, 1/10 mit 10.
+          </div>
+        </div>
+
+        <div class="help-step step3">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>✍️ Stufe 3: Rechenweg & Lösung</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            <div class="math-block">
+              a) 1/20 = 5/100 = 5 %<br>
+              b) 1/4 = 25/100 = 25 %<br>
+              c) 4/5 = 80/100 = 80 %<br>
+              d) 1/10 = 10/100 = 10 %
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- S. 224, Nr. 9 -->
+    <article class="task-card" data-topic="prozent" data-level="2">
+      <div class="task-header" onclick="toggleTask(this)">
+        <div class="task-info">
+          <span class="level-badge blue">⭐⭐ 2 Sterne</span>
+          <span class="task-name">S. 224, Nr. 9</span>
+          <span class="task-desc">Vergleiche und finde die Angabe, die nicht passt</span>
+        </div>
+        <span>▼</span>
+      </div>
+      <div class="task-body">
+        <div class="prompt-box">
+          <strong>Aufgabe:</strong> a) jeder Fünfte; 20 %; 3 von 15; 1/4. Finde heraus, welcher Wert aus der Reihe tanzt!
+        </div>
+
+        <div class="help-step step1">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>👁️ Stufe 1: Anschauung (Einheitliche Sprache)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Um vier verschiedene Ausdrücke zu vergleichen, wandle alle in dieselbe Darstellungsform um (am einfachsten alle in Prozent!).
+          </div>
+        </div>
+
+        <div class="help-step step2">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>💡 Stufe 2: Denkanstoß (Kürzen & Erweitern)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Achtung bei „3 von 15“: Kürze den Bruch 3/15 zuerst durch 3! Welcher Bruch entsteht?
+          </div>
+        </div>
+
+        <div class="help-step step3">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>✍️ Stufe 3: Rechenweg & Lösung</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            <div class="math-block">
+              • Jeder Fünfte = 1/5 = 20/100 = 20 %<br>
+              • 20 % = 20 %<br>
+              • 3 von 15 = 3/15 = 1/5 = 20 %<br>
+              • 1/4 = 25/100 = 25 %<br>
+              ---> 1/4 passt nicht (25 % statt 20 %)!
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- S. 224, Nr. 12 -->
+    <article class="task-card" data-topic="prozent" data-level="3">
+      <div class="task-header" onclick="toggleTask(this)">
+        <div class="task-info">
+          <span class="level-badge purple">⭐⭐⭐ 3 Sterne</span>
+          <span class="task-name">S. 224, Nr. 12</span>
+          <span class="task-desc">Zitronenkuchen vs. Marmorkuchen (Zuckeranteile vergleichen)</span>
+        </div>
+        <span>▼</span>
+      </div>
+      <div class="task-body">
+        <div class="prompt-box">
+          <strong>Aufgabe:</strong> Zitronenkuchen: 1,5 kg Gesamtgewicht mit 600 g Zucker. Marmorkuchen: 1200 g mit 300 g Zucker.<br>
+          a) Bestimme die Zuckeranteile beider Kuchen in Prozent.<br>
+          b) Ida meint: „Wenn ich zwei Stücke Marmorkuchen esse, habe ich genauso viel Zucker wie bei einem Stück Zitronenkuchen.“ Nimm Stellung!
+        </div>
+
+        <div class="help-step step1">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>👁️ Stufe 1: Anschauung (Gleiche Einheiten)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Wandle zuerst alle Gewichte in Gramm um:<br>
+            1,5 kg = 1500 g.<br>
+            Bilde nun für beide Kuchen den Bruch: <strong>Zuckermasse / Gesamtmasse</strong>.
+          </div>
+        </div>
+
+        <div class="help-step step2">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>💡 Stufe 2: Denkanstoß (Kürzen auf Nenner 100)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            • Zitronenkuchen: 600 / 1500 ---> Nullen streichen ---> 6/15 ---> durch 3 kürzen ---> 2/5.<br>
+            • Marmorkuchen: 300 / 1200 ---> Nullen streichen ---> 3/12 ---> durch 3 kürzen ---> 1/4.<br>
+            Bringe beide Brüche jetzt auf den Nenner 100!
+          </div>
+        </div>
+
+        <div class="help-step step3">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>✍️ Stufe 3: Rechenweg & Lösung</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            <div class="math-block">
+              a) Zitronenkuchen: 2/5 = 40/100 = 40 % Zuckeranteil.<br>
+                 Marmorkuchen: 1/4 = 25/100 = 25 % Zuckeranteil.<br><br>
+              b) Zu Idas Aussage: Der prozentuale Anteil ändert sich nicht durch die Anzahl der Stücke (die Konzentration an Zucker bleibt 25 %!). Außerdem: Wenn ein Stück Zitronenkuchen 100 g wiegt (40 g Zucker), wiegen zwei Stücke Marmorkuchen à 100 g zusammen 200 g (mit 50 g Zucker). Ida hat unrecht!
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ======================================================== -->
+    <!-- THEMA 2: BRÜCHE ALS QUOTIENT (S. 227) -->
+    <!-- ======================================================== -->
+    <div class="section-title topic-quotient">
+      <span>➗</span> Thema 2: Brüche als Quotient (S. 227)
+    </div>
+
+    <!-- S. 227, Nr. 1 -->
+    <article class="task-card" data-topic="quotient" data-level="1">
+      <div class="task-header" onclick="toggleTask(this)">
+        <div class="task-info">
+          <span class="level-badge green">⭐ 1 Stern</span>
+          <span class="task-name">S. 227, Nr. 1</span>
+          <span class="task-desc">Schreibe das Ergebnis als vollständig gekürzten Bruch</span>
+        </div>
+        <span>▼</span>
+      </div>
+      <div class="task-body">
+        <div class="prompt-box">
+          <strong>Aufgabe:</strong> Schreibe als Bruch und kürze vollständig: a) 5 : 2, b) 2 : 7, c) 15 : 5, d) 12 : 7, e) 16 : 9, g) 20 : 30 ...
+        </div>
+
+        <div class="help-step step1">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>👁️ Stufe 1: Anschauung (Bruchstrich ist Geteilt)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Die Regel lautet ganz einfach:<br>
+            <strong>Erste Zahl nach oben</strong> (in den Zähler), <strong>zweite Zahl nach unten</strong> (in den Nenner):<br>
+            a : b = a/b.
+          </div>
+        </div>
+
+        <div class="help-step step2">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>💡 Stufe 2: Denkanstoß (Kürzen & ganze Zahlen)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Überprüfe nach dem Aufschreiben:
+            <ul style="margin-left: 1.2rem; margin-top: 0.3rem;">
+              <li>Geht die Division ohne Rest auf? (z. B. 15 : 5 = 15/5 = 3)</li>
+              <li>Haben Zähler und Nenner einen gemeinsamen Teiler? (z. B. 20 : 30 = 20/30 ---> beide durch 10 teilen)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="help-step step3">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>✍️ Stufe 3: Rechenweg & Lösung</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            <div class="math-block">
+              a) 5 : 2 = 5/2 = 2 1/2<br>
+              b) 2 : 7 = 2/7 (kann nicht gekürzt werden)<br>
+              c) 15 : 5 = 15/5 = 3 (natürliche Zahl!)<br>
+              d) 12 : 7 = 12/7 = 1 5/7<br>
+              g) 20 : 30 = 20/30 = 2/3 (durch 10 gekürzt)<br>
+              h) 10 : 100 = 10/100 = 1/10 (durch 10 gekürzt)<br>
+              i) 18 : 12 = 18/12 = 3/2 = 1 1/2 (durch 6 gekürzt)
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- S. 227, Nr. 2 -->
+    <article class="task-card" data-topic="quotient" data-level="2">
+      <div class="task-header" onclick="toggleTask(this)">
+        <div class="task-info">
+          <span class="level-badge blue">⭐⭐ 2 Sterne</span>
+          <span class="task-name">S. 227, Nr. 2</span>
+          <span class="task-desc">Sortiere die Divisionen in die 3 Ergebniskisten ein</span>
+        </div>
+        <span>▼</span>
+      </div>
+      <div class="task-body">
+        <div class="prompt-box">
+          <strong>Aufgabe:</strong> Ordne die Kärtchen (2:3, 3:2, 9:12, 12:16, 8:12, 40:60, 18:12, 48:32, 100:150 ...) den Kisten <strong>2/3</strong>, <strong>3/2</strong> und <strong>3/4</strong> zu.
+        </div>
+
+        <div class="help-step step1">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>👁️ Stufe 1: Anschauung (Kistencheck)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Schreibe jedes Kärtchen als Bruch auf und kürze ihn Schritt für Schritt mit dem größten gemeinsamen Teiler.
+          </div>
+        </div>
+
+        <div class="help-step step2">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>💡 Stufe 2: Denkanstoß (Größer oder kleiner als 1?)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Ein schneller Trick für die Kiste <strong>3/2</strong>:<br>
+            Hier ist der Zähler größer als der Nenner (Wert > 1)! Alle Kärtchen, bei denen die erste Zahl größer ist als die zweite (z. B. 18 : 12 oder 48 : 32), gehören in die Kiste 3/2!
+          </div>
+        </div>
+
+        <div class="help-step step3">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>✍️ Stufe 3: Rechenweg & Lösung</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            <div class="math-block">
+              📦 Kiste 2/3:<br>
+              • 2 : 3<br>
+              • 8 : 12 = 2/3 (durch 4 gekürzt)<br>
+              • 40 : 60 = 2/3 (durch 20 gekürzt)<br>
+              • 30 : 45 = 2/3 (durch 15 gekürzt)<br>
+              • 100 : 150 = 2/3 (durch 50 gekürzt)<br><br>
+              📦 Kiste 3/2:<br>
+              • 3 : 2<br>
+              • 18 : 12 = 3/2 (durch 6 gekürzt)<br>
+              • 48 : 32 = 3/2 (durch 16 gekürzt)<br><br>
+              📦 Kiste 3/4:<br>
+              • 9 : 12 = 3/4 (durch 3 gekürzt)<br>
+              • 12 : 16 = 3/4 (durch 4 gekürzt)<br>
+              • 30 : 40 = 3/4 (durch 10 gekürzt)<br>
+              • 60 : 80 = 3/4 (durch 20 gekürzt)
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- S. 227, Nr. 3 -->
+    <article class="task-card" data-topic="quotient" data-level="2">
+      <div class="task-header" onclick="toggleTask(this)">
+        <div class="task-info">
+          <span class="level-badge blue">⭐⭐ 2 Sterne</span>
+          <span class="task-name">S. 227, Nr. 3</span>
+          <span class="task-desc">Zeichne ein passendes Bild zur Situation</span>
+        </div>
+        <span>▼</span>
+      </div>
+      <div class="task-body">
+        <div class="prompt-box">
+          <strong>Aufgabe:</strong> a) Die 3 Kinder der Familie Süßmayer teilen sich 2 Donuts.<br>
+          b) Vier Kinder teilen sich 3 verschiedenfarbige Blätter gerecht auf.
+        </div>
+
+        <div class="help-step step1">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>👁️ Stufe 1: Anschauung (Zeichenstrategie)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Zeichne zu a) 2 Kreise für die Donuts.<br>
+            Teile <strong>jeden</strong> der beiden Donuts in 3 gleich große Drittelstücke (Mercedes-Stern).
+          </div>
+        </div>
+
+        <div class="help-step step2">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>💡 Stufe 2: Denkanstoß (Verteilung)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Kind 1 bekommt 1 Stück vom 1. Donut (1/3) und 1 Stück vom 2. Donut (1/3).<br>
+            Wie viele Drittel hat jedes Kind insgesamt erhalten?
+          </div>
+        </div>
+
+        <div class="help-step step3">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>✍️ Stufe 3: Rechenweg & Lösung</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            <div class="math-block">
+              a) Rechnung: 2 : 3 = 2/3 Donut pro Kind.<br>
+                 Jedes Kind erhält zwei Drittel-Stücke.<br><br>
+              b) Rechnung: 3 : 4 = 3/4 Blatt pro Kind.<br>
+                 Jedes Kind bekommt von jedem der 3 bunten Blätter genau ein Viertel (1/4 rot + 1/4 blau + 1/4 gelb = 3/4 Blatt insgesamt).
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- S. 227, Nr. 4 -->
+    <article class="task-card" data-topic="quotient" data-level="3">
+      <div class="task-header" onclick="toggleTask(this)">
+        <div class="task-info">
+          <span class="level-badge purple">⭐⭐⭐ 3 Sterne</span>
+          <span class="task-name">S. 227, Nr. 4</span>
+          <span class="task-desc">Grillabend: 6 Spieße auf 5 Personen verteilt</span>
+        </div>
+        <span>▼</span>
+      </div>
+      <div class="task-body">
+        <div class="prompt-box">
+          <strong>Aufgabe:</strong> Bei einem Grillabend gibt es 6 Spieße mit Backpflaumen. Sie sollen auf 5 Personen aufgeteilt werden. Jeder bekommt auch eine Portion Salat. Wie viel von den Spießen bekommt jeder? Gib das Ergebnis als Bruch an.
+        </div>
+
+        <div class="help-step step1">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>👁️ Stufe 1: Anschauung (Wesentliches filtern)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Lass dich nicht vom Salat verwirren – er spielt für die Rechnung keine Rolle!<br>
+            Frage dich: <strong>Was</strong> wird verteilt? (6 Spieße). <strong>An wen</strong> wird verteilt? (5 Personen).
+          </div>
+        </div>
+
+        <div class="help-step step2">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>💡 Stufe 2: Denkanstoß (Divisionsansatz)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Rechne: <strong>Menge der Spieße : Anzahl der Personen</strong>.<br>
+            Schreibe die Division als Bruch und wandle den unechten Bruch in eine gemischte Zahl um.
+          </div>
+        </div>
+
+        <div class="help-step step3">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>✍️ Stufe 3: Rechenweg & Lösung</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            <div class="math-block">
+              Rechnung: 6 : 5 = 6/5 = 1 1/5 Spieße.<br><br>
+              Antwort: Jede Person bekommt genau 1 1/5 Spieße (also einen ganzen Spieß und ein Fünftel des sechsten Spießes).
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- S. 228, Nr. 7 -->
+    <article class="task-card" data-topic="quotient" data-level="3">
+      <div class="task-header" onclick="toggleTask(this)">
+        <div class="task-info">
+          <span class="level-badge purple">⭐⭐⭐ 3 Sterne</span>
+          <span class="task-name">S. 228, Nr. 7</span>
+          <span class="task-desc">Finde den Fehler! (Fehleranalyse & Fachbegriffe)</span>
+        </div>
+        <span>▼</span>
+      </div>
+      <div class="task-body">
+        <div class="prompt-box">
+          <strong>Aufgabe:</strong> Beschreibe, was falsch gemacht wurde. Verwende die Fachbegriffe aus der Wortleiste (kürzen mit, der Nenner, die Summe von, der Anteil von, der Zähler, dividieren durch). Berechne die richtige Lösung:<br>
+          a) 8 : 5 = 5/8<br>
+          b) In der 5b ist das Verhältnis Mädchen zu Jungen 3:6. 3/6 = 1/2, also sind die Hälfte der Kinder Mädchen.<br>
+          c) Der Quotient aus 8 und 8 ist gleich 8/8 = 0.
+        </div>
+
+        <div class="help-step step1">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>👁️ Stufe 1: Anschauung (Worum geht es?)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Untersuche jede Teilaufgabe einzeln:<br>
+            • Bei <strong>a)</strong>: Welche Zahl steht vorne (wird geteilt), welche hinten?<br>
+            • Bei <strong>b)</strong>: Wie viele Kinder sind es insgesamt in der Klasse (Mädchen + Jungen)?<br>
+            • Bei <strong>c)</strong>: Was ergibt eine Zahl geteilt durch sich selbst? (z.&thinsp;B. 8 Äpfel an 8 Kinder).
+          </div>
+        </div>
+
+        <div class="help-step step2">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>💡 Stufe 2: Denkanstoß (Fachbegriffe anwenden)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            • <strong>a)</strong> Die Zahlen wurden vertauscht: Der <em>Zähler</em> ist die erste Zahl, der <em>Nenner</em> die zweite Zahl!<br>
+            • <strong>b)</strong> Die <em>Summe</em> der Kinder ist 3 + 6 = 9. Der <em>Anteil</em> der Mädchen bezieht sich auf alle Kinder, also 3 von 9!<br>
+            • <strong>c)</strong> Wenn man eine Zahl durch sich selbst dividiert, ist das Ergebnis 1 Ganzes, nicht 0!
+          </div>
+        </div>
+
+        <div class="help-step step3">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>✍️ Stufe 3: Rechenweg & vollständige Lösung</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            <div class="math-block">
+              <strong>a) Fehler:</strong> Zähler und Nenner wurden vertauscht (5/8 ist kleiner als 1, aber 8:5 muss größer als 1 sein).<br>
+              <strong>Richtig:</strong> 8 : 5 = 8/5 = 1 3/5.<br><br>
+              <strong>b) Fehler:</strong> 3/6 vergleicht Mädchen mit Jungen, nicht mit der ganzen Klasse. Die Summe aller Kinder ist 3 + 6 = 9.<br>
+              <strong>Richtig:</strong> Der Anteil der Mädchen an allen Kindern ist 3/9 = 1/3 (also ein Drittel, nicht die Hälfte!).<br><br>
+              <strong>c) Fehler:</strong> 8 : 8 ist nicht 0, sondern 1.<br>
+              <strong>Richtig:</strong> Der Quotient aus 8 und 8 ist 8/8 = 1.
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- S. 228, Nr. 8 -->
+    <article class="task-card" data-topic="quotient" data-level="3">
+      <div class="task-header" onclick="toggleTask(this)">
+        <div class="task-info">
+          <span class="level-badge purple">⭐⭐⭐ 3 Sterne</span>
+          <span class="task-name">S. 228, Nr. 8</span>
+          <span class="task-desc">Pizzeria: 5 Kinder / 4 Pizzen vs. 8 Kinder / 6 Pizzen</span>
+        </div>
+        <span>▼</span>
+      </div>
+      <div class="task-body">
+        <div class="prompt-box">
+          <strong>Aufgabe:</strong> In der einen Gruppe teilen sich 5 Kinder 4 Pizzen gerecht auf. In der anderen teilen sich 8 Kinder 6 Pizzen. Bekommt in der Fünfer- oder in der Achtergruppe jedes Kind mehr Pizza?
+        </div>
+
+        <div class="help-step step1">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>👁️ Stufe 1: Anschauung (Aufteilen)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Stelle für beide Gruppen die Rechnung auf (Pizzen : Kinder):<br>
+            • Fünfergruppe: 4 Pizzen verteilt auf 5 Kinder.<br>
+            • Achtergruppe: 6 Pizzen verteilt auf 8 Kinder.
+          </div>
+        </div>
+
+        <div class="help-step step2">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>💡 Stufe 2: Denkanstoß (Vergleichsstrategie)</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            Schreibe beide Rechnungen als Brüche:<br>
+            • Gruppe 1: 4 : 5 = 4/5 Pizza pro Kind.<br>
+            • Gruppe 2: 6 : 8 = 6/8 Pizza pro Kind. Kürze diesen Bruch zuerst!<br>
+            Vergleiche die Brüche: Entweder durch Erweitern auf denselben Nenner oder durch Umwandlung in Prozente!
+          </div>
+        </div>
+
+        <div class="help-step step3">
+          <button class="help-toggle" onclick="toggleStep(this)">
+            <span>✍️ Stufe 3: Rechenweg & Lösung</span>
+            <span>+</span>
+          </button>
+          <div class="help-content">
+            <div class="math-block">
+              <strong>Fünfergruppe:</strong> 4 : 5 = 4/5 Pizza = 16/20 = 80 % einer Pizza.<br>
+              <strong>Achtergruppe:</strong> 6 : 8 = 6/8 = 3/4 Pizza = 15/20 = 75 % einer Pizza.<br><br>
+              <strong>Vergleich:</strong> Da 16/20 > 15/20 (bzw. 80 % > 75 %), bekommt jedes Kind in der <strong>Fünfergruppe</strong> mehr Pizza!
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <p class="footer-note">Gymnasium | Mathematik Klasse 6D | Herr Dayi</p>
+
+  <script>
+    function toggleStep(btn) {
+      const content = btn.nextElementSibling;
+      const isOpen = content.classList.contains('open');
+      content.classList.toggle('open');
+      btn.querySelector('span:last-child').textContent = isOpen ? '+' : '−';
+    }
+
+    function toggleTask(header) {
+      const card = header.closest('.task-card');
+      const body = card.querySelector('.task-body');
+      const arrow = header.querySelector('span:last-child');
+      if (body.style.display === 'none') {
+        body.style.display = 'flex';
+        arrow.textContent = '▼';
+      } else {
+        body.style.display = 'none';
+        arrow.textContent = '▶';
+      }
+    }
+
+    let currentTopic = 'all';
+    let currentLevel = 'all';
+
+    function filterTopic(topic) {
+      currentTopic = topic;
+      document.querySelectorAll('#topicFilter .filter-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      applyFilters();
+    }
+
+    function filterLevel(level) {
+      currentLevel = level;
+      document.querySelectorAll('#levelFilter .filter-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const cards = document.querySelectorAll('.task-card');
+      const secProzent = document.querySelector('.section-title.topic-prozent');
+      const secQuotient = document.querySelector('.section-title.topic-quotient');
+
+      cards.forEach(card => {
+        const matchTopic = (currentTopic === 'all' || card.dataset.topic === currentTopic);
+        const matchLevel = (currentLevel === 'all' || card.dataset.level === currentLevel);
+        if (matchTopic && matchLevel) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (currentTopic === 'quotient') {
+        secProzent.style.display = 'none';
+        secQuotient.style.display = 'flex';
+      } else if (currentTopic === 'prozent') {
+        secProzent.style.display = 'flex';
+        secQuotient.style.display = 'none';
+      } else {
+        secProzent.style.display = 'flex';
+        secQuotient.style.display = 'flex';
+      }
+    }
+  </script>
+</body>
+</html>
