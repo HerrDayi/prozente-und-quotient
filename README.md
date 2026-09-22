@@ -12,7 +12,7 @@ Interaktive, gestufte Hilfestellungen (Single Page Application) für Schüler-iP
 Die Web-App begleitet die 90-minütige Doppelstunde vor der UPP und gliedert sich in zwei interaktive Abschnitte:
 
 ### 📑 1. Phase: Erarbeitung (Arbeitsblatt „Division und Brüche“)
-Gestufte Hilfen (*Stufe 1: Anschauung* $\to$ *Stufe 2: Denkanstoß* $\to$ *Stufe 3: Vollständige Lösung*):
+Gestufte Hilfen (*Stufe 1: Anschauung* $\to$ *Stufe 2: Denkanstoß* $\to$ *Stufe 3: Rechengerüst \& Kontrolltipp*):
 - **Aufgabe 1 (Kernaufgabe):** Kärtchen-Quartette färben (Bilder A, C, F, I mit Rechnungen und Brüchen verknüpfen)
 - **Aufgabe 2 (Kernaufgabe):** Merksatz-Puzzle ordnen
 - **Aufgabe 3 (Sprinter / Differenzierung):** Prüfen, ob das Ergebnis eine natürliche Zahl ist

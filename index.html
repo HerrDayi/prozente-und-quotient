@@ -278,19 +278,13 @@
       display: block;
     }
 
-    .solution-block {
+    .scaffold-block {
       background: white;
       border: 1px dashed var(--green);
       padding: 12px;
       border-radius: 6px;
       margin-top: 8px;
-      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
       font-size: 0.9rem;
-    }
-
-    .math {
-      font-family: "Cambria Math", "Times New Roman", serif;
-      font-weight: bold;
     }
 
     footer {
@@ -342,44 +336,41 @@
 
           <div class="step-box step1">
             <button class="step-btn" onclick="toggleStep(this)">
-              <span>👁️ Stufe 1: Anschauung (Bildkarten analysieren)</span>
+              <span>👁️ Stufe 1: Anschauung (Bildkarten verstehen)</span>
               <span>+</span>
             </button>
             <div class="step-content">
-              Schaue dir zuerst die vier Bilder (A, C, F, I) genau an. Jedes Bild zeigt eine gerechte Aufteilung:<br>
-              • <strong>Kärtchen A:</strong> Ein Streifen mit Gesamtlänge 300 ist in 4 gleiche Teile unterteilt.<br>
-              • <strong>Kärtchen C:</strong> 20 Kugeln werden gleichmäßig auf 5 Röhren aufgeteilt.<br>
-              • <strong>Kärtchen F:</strong> Eine Waage mit 2 kg links und 4 Schalen rechts.<br>
-              • <strong>Kärtchen I:</strong> Ein Streifen der Länge 2 ist in 3 gleiche Teile unterteilt.
+              Schau dir die vier Bildkarten genau an (A, C, F, I). Jedes Bild stellt eine Verteil-Situation dar:<br>
+              • <strong>Was</strong> wird verteilt (die Gesamtmenge)?<br>
+              • <strong>An wie viele</strong> Teile oder Personen wird verteilt?
             </div>
           </div>
 
           <div class="step-box step2">
             <button class="step-btn" onclick="toggleStep(this)">
-              <span>💡 Stufe 2: Denkanstoß (Zuordnung: Rechnung, Bruch, Zahl)</span>
+              <span>💡 Stufe 2: Denkanstoß (Zuordnung der Darstellungen)</span>
               <span>+</span>
             </button>
             <div class="step-content">
-              Suche zu jedem Bild die passende Division (Geteilt-Aufgabe), den passenden Bruch und das Ergebnis:<br>
-              • Streifen 300 auf 4 Teile $\to$ Rechnung <strong>300 : 4</strong> $\to$ Bruch <strong>300/4</strong> $\to$ Ergebnis <strong>75</strong>.<br>
-              • 20 Kugeln auf 5 Röhren $\to$ Rechnung <strong>20 : 5</strong> $\to$ Bruch <strong>20/5</strong> $\to$ Ergebnis <strong>4</strong>.<br>
-              • Waage 2 kg auf 4 Schalen $\to$ Bruch <strong>2/4</strong>.<br>
-              • Streifen 2 auf 3 Teile $\to$ Rechnung <strong>2 : 3</strong> $\to$ Bruch <strong>2/3</strong>.
+              Zu einer Bildkarte gehören immer drei weitere Kärtchen:<br>
+              1. eine <strong>Division</strong> mit Doppelpunkt (:),<br>
+              2. ein <strong>Bruch</strong> mit Bruchstrich,<br>
+              3. das ausgerechnete <strong>Ergebnis</strong>.<br><br>
+              <em>Wichtig:</em> Die erste Zahl der Division steht im Bruch immer <strong>oben</strong> im Zähler!
             </div>
           </div>
 
           <div class="step-box step3">
             <button class="step-btn" onclick="toggleStep(this)">
-              <span>✍️ Stufe 3: Vollständige Lösung</span>
+              <span>🧩 Stufe 3: Rechengerüst & Vorgehen</span>
               <span>+</span>
             </button>
             <div class="step-content">
-              <div class="solution-block">
-                <strong>Quartett 1 (300er):</strong> A (Bild), G (300 : 4), O (300/4), K (75)<br>
-                <strong>Quartett 2 (20er):</strong> C (Bild), E (20 : 5), B (20/5), J (4)<br>
-                <strong>Paar 3 (Waage):</strong> F (Bild), H (2/4)<br>
-                <strong>Gruppe 4 (Streifen 2):</strong> I (Bild), L (2 : 3), D (2/3)<br><br>
-                <em>Hinweis: Die Kärtchen M (20:4), N (3/4) und P (1/4) bleiben übrig (Ablenker).</em>
+              <div class="scaffold-block">
+                <strong>So gehst du Schritt für Schritt vor:</strong><br>
+                1. Starte mit <strong>Bild A</strong> (Streifen 300 in 4 Teile): Suche die Geteilt-Aufgabe mit 300 und 4. Wandle sie in einen Bruch um und berechne das Ergebnis.<br>
+                2. Mache genauso weiter für die 20 Murmeln (<strong>Bild C</strong>) und den Streifen der Länge 2 (<strong>Bild I</strong>).<br><br>
+                <em>Hinweis zur Selbstkontrolle:</em> Drei Kärtchen bleiben am Ende übrig und gehören zu keinem Quartett!
               </div>
             </div>
           </div>
@@ -407,10 +398,9 @@
               <span>+</span>
             </button>
             <div class="step-content">
-              Suche zuerst nach Wörtern mit <strong>Großbuchstaben</strong> für die Satzanfänge:<br>
-              • Ein Satz beginnt mit <em>„Wenn man...“</em><br>
-              • Der zweite Satz beginnt mit <em>„Auf alle Fälle...“</em><br>
-              Suche auch nach Satzzeichen (Punkt am Satzende).
+              Sortiere die Schnipsel zuerst nach der Grammatik:<br>
+              • Suche nach Wörtern mit <strong>Großbuchstaben</strong> am Anfang (sie stehen am Beginn eines Satzes).<br>
+              • Suche nach Schnipseln mit einem <strong>Punkt (.)</strong> am Ende.
             </div>
           </div>
 
@@ -420,22 +410,23 @@
               <span>+</span>
             </button>
             <div class="step-content">
-              • <strong>Satz 1</strong> erklärt, dass beim Teilen zweier ganzer Zahlen entweder eine ganze Zahl herauskommt (wie bei 16 : 4 = 4) oder eben nicht (wie bei 9 : 4 = 2,25).<br>
-              • <strong>Satz 2</strong> erklärt die Brücke: Jede Division lässt sich immer als Bruch schreiben (Bruchstrich ist Geteilt-Zeichen!).
+              Es entstehen genau <strong>zwei Sätze</strong>:<br>
+              • <em>Satz 1</em> beschreibt, was beim Teilen zweier ganzer Zahlen herauskommen kann (entweder eine ganze Zahl wie bei 16 : 4 oder eben nicht wie bei 9 : 4).<br>
+              • <em>Satz 2</em> erklärt, wie man jede Division immer als Bruch darstellen kann.
             </div>
           </div>
 
           <div class="step-box step3">
             <button class="step-btn" onclick="toggleStep(this)">
-              <span>✍️ Stufe 3: Vollständiger Merksatz</span>
+              <span>🧩 Stufe 3: Satzgerüst zur Hilfe</span>
               <span>+</span>
             </button>
             <div class="step-content">
-              <div class="solution-block">
-                <strong>Satz 1:</strong><br>
-                „Wenn man zwei natürliche Zahlen dividiert, kann die Division eine natürliche Zahl als Ergebnis haben (z. B. bei 16 : 4) oder nicht (z. B. bei 9 : 4).“<br><br>
-                <strong>Satz 2:</strong><br>
-                „Auf alle Fälle lässt sich jede Division mithilfe eines Bruchs darstellen. Hier also 16/4 bzw. 9/4.“
+              <div class="scaffold-block">
+                <strong>Nutze dieses Satzgerüst zum Zusammensetzen:</strong><br>
+                • <em>Satz 1 beginnt mit:</em> „Wenn man zwei natürliche Zahlen dividiert, kann die Division...“<br>
+                • <em>Satz 2 beginnt mit:</em> „Auf alle Fälle lässt sich jede Division...“<br><br>
+                Füge nun die passenden Schnipsel mit den Beispielen an den richtigen Stellen ein!
               </div>
             </div>
           </div>
@@ -463,39 +454,31 @@
               <span>+</span>
             </button>
             <div class="step-content">
-              Denke daran: <strong>Zähler : Nenner</strong>.<br>
-              Frage dich bei jedem Bruch: Geht die obere Zahl ohne Rest durch die untere Zahl zu teilen?
+              Ein Bruch bedeutet immer: <strong>Zähler : Nenner</strong>.<br>
+              Ein Bruch ist genau dann eine natürliche Zahl (1, 2, 3, ...), wenn die Division <strong>ohne Rest</strong> aufgeht!
             </div>
           </div>
 
           <div class="step-box step2">
             <button class="step-btn" onclick="toggleStep(this)">
-              <span>💡 Stufe 2: Denkanstoß (Beispiele prüfen)</span>
+              <span>💡 Stufe 2: Denkanstoß (Strategie & Ausschluss)</span>
               <span>+</span>
             </button>
             <div class="step-content">
-              • a) 14/2 = 14 : 2 = 7 $\to$ Ja, 7 ist eine natürliche Zahl!<br>
-              • c) 15/7 = 15 : 7 = 2 Rest 1 $\to$ Nein, geht nicht auf!<br>
-              • f) 11/22 = 1/2 $\to$ Nein, echter Bruch (kleiner als 1).
+              • Prüfe das Einmaleins des Nenners: Ist der Zähler ein Vielfaches des Nenners?<br>
+              • <em>Wichtiger Ausschluss-Tipp:</em> Wenn der Zähler <strong>kleiner</strong> ist als der Nenner (z. B. bei 11/22), ist der Wert kleiner als 1 – das kann niemals eine natürliche Zahl sein!
             </div>
           </div>
 
           <div class="step-box step3">
             <button class="step-btn" onclick="toggleStep(this)">
-              <span>✍️ Stufe 3: Vollständige Lösung</span>
+              <span>🧩 Stufe 3: Rechengerüst & Kontrollhilfe</span>
               <span>+</span>
             </button>
             <div class="step-content">
-              <div class="solution-block">
-                <strong>Ein Kreuz gehört bei:</strong><br>
-                • a) 14/2 = 7<br>
-                • b) 18/3 = 6<br>
-                • e) 51/17 = 3 (denn 3 · 17 = 51)<br>
-                • h) 60/15 = 4 (denn 4 · 15 = 60)<br>
-                • i) 52/13 = 4 (denn 4 · 13 = 52)<br>
-                • j) 35/7 = 5<br>
-                • k) 5/5 = 1<br><br>
-                <strong>Kein Kreuz bei:</strong> c) 15/7, d) 15/7, f) 11/22, g) 49/14, l) 9/27.
+              <div class="scaffold-block">
+                Rechne für jeden Bruch im Kopf: Geht Zähler geteilt durch Nenner glatt auf?<br><br>
+                <em>Kontrollhilfe:</em> Bei genau <strong>7</strong> der 12 Brüche gehört ein Kreuz!
               </div>
             </div>
           </div>
@@ -523,9 +506,9 @@
               <span>+</span>
             </button>
             <div class="step-content">
-              Überlege mit einer Situation:<br>
-              • <strong>0/3:</strong> Du hast 0 Euro und verteilst sie auf 3 Personen. Jeder bekommt genau 0 Euro. Das geht!<br>
-              • <strong>3/0:</strong> Du hast 3 Euro und willst sie an 0 Personen verteilen. Das ergibt keinen Sinn!
+              Überlege mit einer Schüssel Bonbons:<br>
+              • <strong>0/3:</strong> Du hast 0 Bonbons und verteilst sie an 3 Kinder. Jeder bekommt 0 Bonbons. Das geht!<br>
+              • <strong>3/0:</strong> Du hast 3 Bonbons und willst sie an 0 Personen verteilen. Niemand ist da – ein Verteilen ist unmöglich!
             </div>
           </div>
 
@@ -535,22 +518,20 @@
               <span>+</span>
             </button>
             <div class="step-content">
-              <strong>Goldene Regel:</strong> Durch 0 darf man niemals teilen!<br>
-              Im Nenner darf niemals eine 0 stehen. Steht die 0 jedoch im Zähler oben, ist das Ergebnis 0.
+              <strong>Goldene Regel:</strong> Durch Null darf man niemals teilen!<br>
+              Frage dich bei jedem Bruch genau: Steht die Null im Zähler (oben) oder im Nenner (unten)?
             </div>
           </div>
 
           <div class="step-box step3">
             <button class="step-btn" onclick="toggleStep(this)">
-              <span>✍️ Stufe 3: Lösung</span>
+              <span>🧩 Stufe 3: Strukturhilfe zur Beantwortung</span>
               <span>+</span>
             </button>
             <div class="step-content">
-              <div class="solution-block">
-                • a) 3/0 $\to$ <strong>Nicht ausführbar!</strong> (Division durch 0 ist nicht erlaubt).<br>
-                • b) 0/3 $\to$ <strong>Ausführbar: Ergebnis ist 0</strong>.<br>
-                • c) 0/1 $\to$ <strong>Ausführbar: Ergebnis ist 0</strong>.<br>
-                • d) 0/0 $\to$ <strong>Nicht ausführbar!</strong> (Auch 0 darf nicht durch 0 geteilt werden).
+              <div class="scaffold-block">
+                • Steht die 0 <strong>unten im Nenner</strong>, ist die Division verboten (nicht ausführbar).<br>
+                • Steht die 0 <strong>oben im Zähler</strong> und unten eine Zahl ungleich 0, ist das Teilen erlaubt – überlege, welche feste Zahl dann herauskommt!
               </div>
             </div>
           </div>
@@ -598,15 +579,15 @@
           </div>
           <div class="step-box step1">
             <button class="step-btn" onclick="toggleStep(this)"><span>👁️ Stufe 1: Anschauung</span><span>+</span></button>
-            <div class="step-content">Ein Hundertstel eines Ganzen ist genau 1 %. Der Zähler gibt sofort die Prozentzahl an, wenn im Nenner 100 steht!</div>
+            <div class="step-content">Prozent bedeutet „von Hundert“. Ein Hundertstel (1/100) entspricht genau 1 %.</div>
           </div>
           <div class="step-box step2">
             <button class="step-btn" onclick="toggleStep(this)"><span>💡 Stufe 2: Denkanstoß</span><span>+</span></button>
-            <div class="step-content">Wenn der Bruch noch nicht Nenner 100 hat, erweitere ihn: z. B. bei 20/50 mit 2 erweitern $\to$ 40/100 = 40 %.</div>
+            <div class="step-content">Wenn im Nenner bereits 100 steht, gibt der Zähler sofort die Prozentzahl an!</div>
           </div>
           <div class="step-box step3">
-            <button class="step-btn" onclick="toggleStep(this)"><span>✍️ Stufe 3: Rechenweg & Lösung</span><span>+</span></button>
-            <div class="step-content"><div class="solution-block">a) 37/100 = 37 %<br>b) 9/100 = 9 %<br>c) 80/100 = 80 %</div></div>
+            <button class="step-btn" onclick="toggleStep(this)"><span>🧩 Stufe 3: Rechengerüst</span><span>+</span></button>
+            <div class="step-content"><div class="scaffold-block">Übertrage die Zahl aus dem Zähler direkt vor das Prozentzeichen:<br>$\frac{\Box}{100} = \Box\,\%$.</div></div>
           </div>
         </div>
       </article>
@@ -627,15 +608,15 @@
           </div>
           <div class="step-box step1">
             <button class="step-btn" onclick="toggleStep(this)"><span>👁️ Stufe 1: Anschauung</span><span>+</span></button>
-            <div class="step-content">Erweiterungszahlen für Nenner 100 im Kopf haben:<br>• Bei Nenner 10: mal 10<br>• Bei Nenner 20: mal 5<br>• Bei Nenner 25: mal 4<br>• Bei Nenner 200: durch 2 teilen (kürzen)!</div>
+            <div class="step-content">Um die Prozentzahl zu erhalten, muss im Nenner genau 100 stehen.</div>
           </div>
           <div class="step-box step2">
-            <button class="step-btn" onclick="toggleStep(this)"><span>💡 Stufe 2: Denkanstoß</span><span>+</span></button>
-            <div class="step-content">Multipliziere oder dividiere Zähler UND Nenner immer mit derselben Zahl!</div>
+            <button class="step-btn" onclick="toggleStep(this)"><span>💡 Stufe 2: Denkanstoß (Wichtige Zahlenpaare)</span><span>+</span></button>
+            <div class="step-content">Frage dich: Mit welcher Zahl erreichst du Nenner 100?<br>• Bei Nenner 10: mit 10 erweitern ($10 \cdot 10 = 100$)<br>• Bei Nenner 20: mit 5 erweitern ($20 \cdot 5 = 100$)<br>• Bei Nenner 25: mit 4 erweitern ($25 \cdot 4 = 100$)<br>• Bei Nenner 200: <strong>mit 2 kürzen</strong> ($200 : 2 = 100$)!</div>
           </div>
           <div class="step-box step3">
-            <button class="step-btn" onclick="toggleStep(this)"><span>✍️ Stufe 3: Rechenweg & Lösung</span><span>+</span></button>
-            <div class="step-content"><div class="solution-block">• 3/10 = 30/100 = 30 %<br>• 7/20 = 35/100 = 35 %<br>• 18/25 = 72/100 = 72 %<br>• 42/200 = 21/100 = 21 %</div></div>
+            <button class="step-btn" onclick="toggleStep(this)"><span>🧩 Stufe 3: Rechengerüst</span><span>+</span></button>
+            <div class="step-content"><div class="scaffold-block">Multipliziere oder dividiere <strong>Zähler UND Nenner</strong> mit derselben Zahl:<br>$\frac{\text{Zähler} \cdot \Box}{\text{Nenner} \cdot \Box} = \frac{\dots}{100} = \dots\,\%$.</div></div>
           </div>
         </div>
       </article>
@@ -660,11 +641,11 @@
           </div>
           <div class="step-box step2">
             <button class="step-btn" onclick="toggleStep(this)"><span>💡 Stufe 2: Denkanstoß</span><span>+</span></button>
-            <div class="step-content">Wandle beide Brüche in Prozente (Nenner 100) um, um sie direkt vergleichen zu können!</div>
+            <div class="step-content">Erweitere beide Brüche auf den Nenner 100, um zwei Prozentzahlen zu erhalten, die du direkt vergleichen kannst!</div>
           </div>
           <div class="step-box step3">
-            <button class="step-btn" onclick="toggleStep(this)"><span>✍️ Stufe 3: Lösung</span><span>+</span></button>
-            <div class="step-content"><div class="solution-block">Klasse 6a: 12/25 = 48/100 = 48 %.<br>Klasse 6b: 11/20 = 55/100 = 55 %.<br><br>Antwort: In Klasse 6b ist der Anteil größer (55 % > 48 %).</div></div>
+            <button class="step-btn" onclick="toggleStep(this)"><span>🧩 Stufe 3: Rechengerüst</span><span>+</span></button>
+            <div class="step-content"><div class="scaffold-block">• Klasse 6a: $\frac{12 \cdot 4}{25 \cdot 4} = \frac{\dots}{100} = \dots\,\%$<br>• Klasse 6b: $\frac{11 \cdot 5}{20 \cdot 5} = \frac{\dots}{100} = \dots\,\%$<br>Vergleiche nun die beiden Prozentzahlen!</div></div>
           </div>
         </div>
       </article>
@@ -685,15 +666,15 @@
           </div>
           <div class="step-box step1">
             <button class="step-btn" onclick="toggleStep(this)"><span>👁️ Stufe 1: Anschauung</span><span>+</span></button>
-            <div class="step-content">40 passt nicht direkt durch Multiplikation mit einer ganzen Zahl in 100. Kürze den Bruch zuerst!</div>
+            <div class="step-content">40 lässt sich nicht direkt mit einer ganzen Zahl auf 100 erweitern. Nutze einen Zwischenschritt!</div>
           </div>
           <div class="step-box step2">
             <button class="step-btn" onclick="toggleStep(this)"><span>💡 Stufe 2: Denkanstoß</span><span>+</span></button>
-            <div class="step-content">• 9/300: Kürze mit 3 auf Nenner 100.<br>• 12/40: Kürze mit 4 auf Nenner 10, erweitere dann mit 10 auf Nenner 100.</div>
+            <div class="step-content">• Bei 9/300: <strong>Kürze mit 3</strong>, um direkt Nenner 100 zu erhalten.<br>• Bei 12/40: <strong>Kürze mit 4</strong> auf Nenner 10 und erweitere dann auf Nenner 100!</div>
           </div>
           <div class="step-box step3">
-            <button class="step-btn" onclick="toggleStep(this)"><span>✍️ Stufe 3: Lösung</span><span>+</span></button>
-            <div class="step-content"><div class="solution-block">• 9/300 = 3/100 = 3 %.<br>• 12/40 = 3/10 = 30/100 = 30 %.</div></div>
+            <button class="step-btn" onclick="toggleStep(this)"><span>🧩 Stufe 3: Rechengerüst</span><span>+</span></button>
+            <div class="step-content"><div class="scaffold-block">$\frac{12}{40} \xrightarrow{\text{kürzen mit 4}} \frac{\Box}{10} \xrightarrow{\text{erweitern mit 10}} \frac{\Box}{100} = \Box\,\%$.</div></div>
           </div>
         </div>
       </article>
@@ -714,15 +695,15 @@
           </div>
           <div class="step-box step1">
             <button class="step-btn" onclick="toggleStep(this)"><span>👁️ Stufe 1: Anschauung</span><span>+</span></button>
-            <div class="step-content">Erste Zahl nach oben (Zähler), zweite Zahl nach unten (Nenner): 3 : 4 = 3/4.</div>
+            <div class="step-content">Grundregel: 1. Zahl nach oben (Zähler), 2. Zahl nach unten (Nenner).</div>
           </div>
           <div class="step-box step2">
             <button class="step-btn" onclick="toggleStep(this)"><span>💡 Stufe 2: Denkanstoß</span><span>+</span></button>
-            <div class="step-content">Prüfe bei 15 : 5: Geht die Division auf? (Ja, ergibt eine ganze Zahl!). Bei unechten Brüchen (5/2) kannst du eine gemischte Zahl schreiben.</div>
+            <div class="step-content">Prüfe bei jeder Aufgabe: Geht die Division ohne Rest auf (ganze Zahl)? Lässt sich der Bruch noch kürzen?</div>
           </div>
           <div class="step-box step3">
-            <button class="step-btn" onclick="toggleStep(this)"><span>✍️ Stufe 3: Lösung</span><span>+</span></button>
-            <div class="step-content"><div class="solution-block">a) 5 : 2 = 5/2 = 2 1/2<br>b) 2 : 7 = 2/7<br>c) 15 : 5 = 15/5 = 3 (ganze Zahl!)</div></div>
+            <button class="step-btn" onclick="toggleStep(this)"><span>🧩 Stufe 3: Rechengerüst</span><span>+</span></button>
+            <div class="step-content"><div class="scaffold-block">$\text{Zahl 1} : \text{Zahl 2} = \frac{\text{Zahl 1}}{\text{Zahl 2}}$.<br><em>Kontrolltipp:</em> Genau eine der drei Aufgaben ergibt eine natürliche Zahl ohne Bruch!</div></div>
           </div>
         </div>
       </article>
@@ -743,15 +724,15 @@
           </div>
           <div class="step-box step1">
             <button class="step-btn" onclick="toggleStep(this)"><span>👁️ Stufe 1: Anschauung</span><span>+</span></button>
-            <div class="step-content">Schreibe jedes Kärtchen als Bruch und kürze vollständig.</div>
+            <div class="step-content">Schreibe jedes Kärtchen als Bruch auf: z. B. $8 : 12 = \frac{8}{12}$.</div>
           </div>
           <div class="step-box step2">
             <button class="step-btn" onclick="toggleStep(this)"><span>💡 Stufe 2: Denkanstoß</span><span>+</span></button>
-            <div class="step-content">Für Kiste 3/2: Hier ist der Zähler größer als der Nenner (Wert > 1).</div>
+            <div class="step-content">Kürze jeden Bruch vollständig mit dem größten gemeinsamen Teiler.<br><em>Schneller Blick für Kiste 3/2:</em> Hier ist der Zähler größer als der Nenner (Wert > 1).</div>
           </div>
           <div class="step-box step3">
-            <button class="step-btn" onclick="toggleStep(this)"><span>✍️ Stufe 3: Lösung</span><span>+</span></button>
-            <div class="step-content"><div class="solution-block">Kiste 2/3: 2:3, 8:12, 40:60, 30:45, 100:150.<br>Kiste 3/2: 3:2, 18:12, 48:32.<br>Kiste 3/4: 9:12, 12:16, 30:40, 60:80.</div></div>
+            <button class="step-btn" onclick="toggleStep(this)"><span>🧩 Stufe 3: Kontrollhilfe</span><span>+</span></button>
+            <div class="step-content"><div class="scaffold-block"><em>Kontrollhilfe:</em> In die Kiste 3/2 gehören genau <strong>3 Kärtchen</strong>!</div></div>
           </div>
         </div>
       </article>
@@ -775,15 +756,15 @@
           </div>
           <div class="step-box step1">
             <button class="step-btn" onclick="toggleStep(this)"><span>👁️ Stufe 1: Anschauung</span><span>+</span></button>
-            <div class="step-content">• a) Welche Zahl steht vorne?<br>• b) Wie viele Kinder sind es insgesamt?<br>• c) Was ergibt 8 geteilt durch 8?</div>
+            <div class="step-content">• a) Welche Zahl wird geteilt, welche Zahl teilt?<br>• b) Bezieht sich der Anteil auf die gesamte Klasse oder nur auf die Jungen?<br>• c) Was passiert, wenn man 8 Äpfel an 8 Kinder verteilt?</div>
           </div>
           <div class="step-box step2">
             <button class="step-btn" onclick="toggleStep(this)"><span>💡 Stufe 2: Denkanstoß</span><span>+</span></button>
-            <div class="step-content">• a) Zähler und Nenner wurden vertauscht (8 : 5 muss größer als 1 sein!).<br>• b) Gesamtanzahl ist 3 + 6 = 9 Kinder. Mädchenanteil ist 3/9 = 1/3 (ein Drittel, nicht die Hälfte!).<br>• c) 8 geteilt durch 8 ist 1 Ganzes, nicht 0!</div>
+            <div class="step-content">Nutze die Fachbegriffe:<br>• a) Zähler und Nenner wurden verwechselt.<br>• b) Bilde zuerst die <em>Summe</em> aller Kinder (3 + 6 = 9). Welcher <em>Anteil</em> sind 3 von 9?<br>• c) Der Quotient zweier gleicher Zahlen ist nicht 0!</div>
           </div>
           <div class="step-box step3">
-            <button class="step-btn" onclick="toggleStep(this)"><span>✍️ Stufe 3: Lösung</span><span>+</span></button>
-            <div class="step-content"><div class="solution-block">a) Richtig: 8 : 5 = 8/5 = 1 3/5.<br>b) Richtig: Anteil der Mädchen ist 3/9 = 1/3.<br>c) Richtig: 8 : 8 = 8/8 = 1.</div></div>
+            <button class="step-btn" onclick="toggleStep(this)"><span>🧩 Stufe 3: Formulierungshilfe</span><span>+</span></button>
+            <div class="step-content"><div class="scaffold-block">Formuliere deine Begründung im Heft so:<br>• zu a): „Der Fehler ist die Reihenfolge: Die erste Zahl muss oben im ... stehen.“<br>• zu b): „Der Fehler ist, dass die Klasse insgesamt aus 3 + 6 = ... Kindern besteht.“<br>• zu c): „Eine Zahl geteilt durch sich selbst ergibt immer ...“</div></div>
           </div>
         </div>
       </article>
@@ -804,15 +785,15 @@
           </div>
           <div class="step-box step1">
             <button class="step-btn" onclick="toggleStep(this)"><span>👁️ Stufe 1: Anschauung</span><span>+</span></button>
-            <div class="step-content">Rechne Pizzen : Kinder für beide Gruppen als Bruch.</div>
+            <div class="step-content">Stelle für beide Gruppen den Bruch auf: $\text{Pizzen} : \text{Kinder}$.</div>
           </div>
           <div class="step-box step2">
             <button class="step-btn" onclick="toggleStep(this)"><span>💡 Stufe 2: Denkanstoß</span><span>+</span></button>
-            <div class="step-content">Gruppe 1: 4/5. Gruppe 2: 6/8 = 3/4. Vergleiche über Prozent (Nenner 100) oder Hauptnenner 20!</div>
+            <div class="step-content">Kürze den Bruch der Achtergruppe (6/8) zuerst vollständig. Wandle danach beide Brüche entweder auf den Hauptnenner 20 oder in Prozentzahlen um!</div>
           </div>
           <div class="step-box step3">
-            <button class="step-btn" onclick="toggleStep(this)"><span>✍️ Stufe 3: Lösung</span><span>+</span></button>
-            <div class="step-content"><div class="solution-block">Gruppe 1: 4/5 = 16/20 = 80 %.<br>Gruppe 2: 6/8 = 3/4 = 15/20 = 75 %.<br><br>Ergebnis: In der Fünfergruppe bekommt jedes Kind mehr Pizza (80 % > 75 %).</div></div>
+            <button class="step-btn" onclick="toggleStep(this)"><span>🧩 Stufe 3: Rechengerüst</span><span>+</span></button>
+            <div class="step-content"><div class="scaffold-block">• Fünfergruppe: $\frac{4}{5} = \frac{\dots}{100} = \dots\,\%$<br>• Achtergruppe: $\frac{6}{8} = \frac{3}{4} = \frac{\dots}{100} = \dots\,\%$<br>Vergleiche die beiden Werte, um die Antwort zu formulieren!</div></div>
           </div>
         </div>
       </article>
